@@ -1,0 +1,7 @@
+{
+  "name": "SGG Export Global Portal",
+  "description": "A high-end, production-ready export-import platform with AI-driven RFQ processing, booking systems, and a professional admin dashboard.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
