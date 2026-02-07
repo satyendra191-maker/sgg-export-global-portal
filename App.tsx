@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Services from "./pages/Services";
@@ -9,19 +8,14 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import RFQ from "./pages/RFQ";
 
-const App = () => {
+export default function App() {
   const [path, setPath] = useState(window.location.hash || "#/");
 
   useEffect(() => {
-    if (!window.location.hash) {
-      window.location.hash = "#/";
-    }
-
     const onHashChange = () => {
       setPath(window.location.hash || "#/");
       window.scrollTo(0, 0);
     };
-
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
@@ -48,12 +42,8 @@ const App = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow">
-        {renderPage()}
-      </main>
+      <main className="flex-grow">{renderPage()}</main>
       <Footer />
     </div>
   );
-};
-
-export default App;
+}
