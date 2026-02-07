@@ -6,22 +6,22 @@ const Navbar = () => {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        
+
         {/* LOGO */}
         <a href="#/" className="text-2xl font-bold text-slate-900">
           SGG<span className="text-amber-500">Export</span>
         </a>
 
         {/* DESKTOP MENU */}
-        <nav className="hidden md:flex gap-8 font-semibold text-slate-700">
-          <a href="#/" className="hover:text-amber-500">Home</a>
-          <a href="#/products" className="hover:text-amber-500">Products</a>
-          <a href="#/services" className="hover:text-amber-500">Services</a>
-          <a href="#/about" className="hover:text-amber-500">About</a>
-          <a href="#/contact" className="hover:text-amber-500">Contact</a>
+        <nav className="hidden md:flex gap-8 font-semibold text-slate-900">
+          <a href="#/" className="hover:text-amber-600">Home</a>
+          <a href="#/products" className="hover:text-amber-600">Products</a>
+          <a href="#/services" className="hover:text-amber-600">Services</a>
+          <a href="#/about" className="hover:text-amber-600">About</a>
+          <a href="#/contact" className="hover:text-amber-600">Contact</a>
         </nav>
 
-        {/* DESKTOP CTA */}
+        {/* DESKTOP RFQ */}
         <a
           href="#/rfq"
           className="hidden md:inline-block bg-amber-500 text-black px-5 py-2 rounded-md font-bold hover:bg-amber-600 transition"
@@ -41,7 +41,7 @@ const Navbar = () => {
       {/* MOBILE MENU */}
       {open && (
         <div className="md:hidden bg-white border-t shadow-lg">
-          <nav className="flex flex-col p-6 gap-4 font-semibold text-slate-700">
+          <nav className="flex flex-col p-6 gap-4 font-semibold text-slate-900">
             <a href="#/" onClick={() => setOpen(false)}>Home</a>
             <a href="#/products" onClick={() => setOpen(false)}>Products</a>
             <a href="#/services" onClick={() => setOpen(false)}>Services</a>
