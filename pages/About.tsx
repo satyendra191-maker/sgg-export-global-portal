@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { supabase } from "../services/supabase";
+import { useEffect, useState } from "react";
 
 export default function About() {
   const [content, setContent] = useState("");
