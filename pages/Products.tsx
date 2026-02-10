@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
 import { supabase } from "../services/supabase";
+
+import { useEffect, useState } from "react";
+
 
 export default function Products() {
   const [items, setItems] = useState<any[]>([]);
