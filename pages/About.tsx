@@ -1,18 +1,37 @@
+import { useEffect, useState } from "react";
+import { supabase } from "../services/supabase";
+
 export default function About() {
+  const [content, setContent] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPage = async () => {
+      const { data, error } = await supabase
+        .from("pages")
+        .select("content")
+        .eq("slug", "about")
+        .single();
+
+      if (error) {
+        console.error("About page error:", error.message);
+      } else {
+        setContent(data?.content || "");
+      }
+
+      setLoading(false);
+    };
+
+    loadPage();
+  }, []);
+
+  if (loading) {
+    return <div className="p-10">Loading...</div>;
+  }
+
   return (
-    <div className="py-20 px-6 max-w-5xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">About SGG Export</h1>
-
-      <img
-        src="https://images.unsplash.com/photo-1551836022-d5d88e9218df"
-        className="rounded mb-6"
-      />
-
-      <p className="text-lg">
-        SGG Export is a global export and logistics company helping businesses
-        expand into international markets with confidence, compliance and
-        efficiency.
-      </p>
+    <div className="max-w-4xl mx-auto p-10">
+      <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );
 }
